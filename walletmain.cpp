@@ -41,7 +41,7 @@
 
 // Core routines
 
-Error WalletMain::createPaymentTx(const QString& psRecvAcc, std::int64_t pnAmount, std::int64_t pnTxFee, std::int64_t pnTagID, QString& psJson, QString& psHex)
+Error WalletMain::createPaymentTx(const QString& psRecvAcc, std::int64_t pnAmount, std::int64_t pnTxFee, std::int64_t pnTagID, const QString& psInvoiceId, QString& psJson, QString& psHex)
 {
     using namespace ripple;
 
@@ -68,7 +68,12 @@ Error WalletMain::createPaymentTx(const QString& psRecvAcc, std::int64_t pnAmoun
         obj[sfDestination] = *destination;
         if (pnTagID != 0)
             obj[sfDestinationTag] = pnTagID;
-
+        if (psInvoiceId.size() != 0)
+        {
+            uint256 nInvoiceId;
+            nInvoiceId.SetHexExact(psInvoiceId.toStdString());
+            obj[sfInvoiceID] = nInvoiceId;
+        }
     });
 
     try
@@ -1015,15 +1020,24 @@ void WalletMain::sendPayment(bool pbJustAsk)
 
     QString sHex, sJSON;
     QString sRecvAcc = ui->receiverAddressEdit->text();
+    QString sInvoiceId = ui->invoiceIdEdit->text();
     int64_t nAmount = readDouble(ui->amountToSend) * coinAsInt;
     int64_t nTagID = readInt(ui->destinationTag);
     int64_t nTxFee = readDouble(ui->sendTransactionFeeValue) * coinAsInt;
     if (nTxFee == 0) nTxFee = nFeeRef;
 
+    if (sInvoiceId.size() != 0)
+    {
+        QRegularExpression re("^[a-f0-9]{64}$");
+        re.setPatternOptions(QRegularExpression::CaseInsensitiveOption);
+        QRegularExpressionMatch m = re.match(sInvoiceId);
+        if (!m.hasMatch())
+            return Show("Warning", "Invoice ID must be either empty or provide 256-bit hex encoded value.", E_WARN);
+    }
     if (nAmount > (vnBalances[nMainAccount] - nTxFee - nReserve))
         return Show("Warning", "Transaction amount is greater than amount of available funds. This could happen if your available balance doesn't comply with either fee or reserve requirements.", E_WARN);
 
-    auto eRes = createPaymentTx(sRecvAcc, nAmount, nTxFee, nTagID, sJSON, sHex);
+    auto eRes = createPaymentTx(sRecvAcc, nAmount, nTxFee, nTagID, sInvoiceId, sJSON, sHex);
     if (eNone == eRes)
     {
         int nExpected = 0;
@@ -1055,6 +1069,7 @@ void WalletMain::sendPayment(bool pbJustAsk)
             ui->receiverAddressEdit->setText("");
             ui->amountToSend->setText("");
             ui->destinationTag->setText("");
+            ui->invoiceIdEdit->setText("");
         }
 
         return;
@@ -1085,6 +1100,7 @@ void WalletMain::on_clearButton_clicked()
     ui->receiverAddressEdit->setText("");
     ui->amountToSend->setText("");
     ui->destinationTag->setText("");
+    ui->invoiceIdEdit->setText("");
 }
 
 void WalletMain::on_previewButton_clicked()

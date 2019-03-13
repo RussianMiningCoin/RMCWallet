@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>809</width>
-    <height>358</height>
+    <width>750</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,12 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>750</width>
+    <height>360</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>RPC Wallet</string>
@@ -24,7 +30,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="historyTab">
        <property name="toolTip">
@@ -115,7 +121,7 @@
         <property name="geometry">
          <rect>
           <x>330</x>
-          <y>200</y>
+          <y>230</y>
           <width>80</width>
           <height>25</height>
          </rect>
@@ -125,6 +131,9 @@
           <width>100</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Generate and sign transaction then ask for confirmation before making the broadcast to network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Send</string>
@@ -133,11 +142,17 @@
        <widget class="QLabel" name="receiverLabel">
         <property name="geometry">
          <rect>
-          <x>9</x>
-          <y>22</y>
-          <width>119</width>
-          <height>17</height>
+          <x>10</x>
+          <y>20</y>
+          <width>120</width>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>112</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>Receiver address:</string>
@@ -146,21 +161,36 @@
        <widget class="QLineEdit" name="receiverAddressEdit">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>22</y>
-          <width>491</width>
+          <x>140</x>
+          <y>20</y>
+          <width>520</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>520</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Receiver address&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
        <widget class="QLabel" name="amountLabel">
         <property name="geometry">
          <rect>
           <x>9</x>
-          <y>154</y>
+          <y>180</y>
           <width>113</width>
-          <height>17</height>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>112</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>Amount to send:</string>
@@ -169,17 +199,26 @@
        <widget class="QLineEdit" name="amountToSend">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>154</y>
+          <x>140</x>
+          <y>180</y>
           <width>142</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>141</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>160</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Amount of RMCs to send.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="placeholderText">
          <string>0</string>
@@ -188,11 +227,17 @@
        <widget class="QLabel" name="rmcLabel">
         <property name="geometry">
          <rect>
-          <x>310</x>
-          <y>160</y>
+          <x>290</x>
+          <y>180</y>
           <width>32</width>
-          <height>17</height>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>RMC</string>
@@ -201,8 +246,8 @@
        <widget class="QPushButton" name="clearButton">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>198</y>
+          <x>110</x>
+          <y>230</y>
           <width>80</width>
           <height>25</height>
          </rect>
@@ -212,6 +257,9 @@
           <width>100</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset form fields&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Clear</string>
@@ -220,8 +268,8 @@
        <widget class="QPushButton" name="previewButton">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>200</y>
+          <x>220</x>
+          <y>230</y>
           <width>80</width>
           <height>25</height>
          </rect>
@@ -232,6 +280,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Generate and sign transaction as usual. After this will be done, JSON representation will be displayed and you will see a request for confirmation whether this is what you wanted to do.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>Preview</string>
         </property>
@@ -239,11 +290,17 @@
        <widget class="QLabel" name="destinationTagLabel">
         <property name="geometry">
          <rect>
-          <x>9</x>
-          <y>66</y>
-          <width>109</width>
-          <height>17</height>
+          <x>10</x>
+          <y>100</y>
+          <width>112</width>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>112</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>Destination tag:</string>
@@ -252,11 +309,20 @@
        <widget class="QLineEdit" name="destinationTag">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>66</y>
-          <width>231</width>
+          <x>140</x>
+          <y>100</y>
+          <width>141</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>141</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arbitrary 8-byte long integer value to identify this payment. Leave empty if you don't need this.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string/>
@@ -269,10 +335,16 @@
         <property name="geometry">
          <rect>
           <x>9</x>
-          <y>110</y>
-          <width>109</width>
-          <height>17</height>
+          <y>140</y>
+          <width>112</width>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>112</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>Transaction fee:</string>
@@ -281,11 +353,20 @@
        <widget class="QLineEdit" name="sendTransactionFeeValue">
         <property name="geometry">
          <rect>
-          <x>134</x>
-          <y>110</y>
+          <x>140</x>
+          <y>140</y>
           <width>142</width>
           <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>141</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Transaction cost, leave empty to use default network settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="placeholderText">
          <string>0,00001</string>
@@ -294,14 +375,58 @@
        <widget class="QLabel" name="rmcLabel_2">
         <property name="geometry">
          <rect>
-          <x>310</x>
-          <y>110</y>
+          <x>290</x>
+          <y>140</y>
           <width>32</width>
-          <height>17</height>
+          <height>25</height>
          </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
         </property>
         <property name="text">
          <string>RMC</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="invoiceIDlabel">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>112</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>112</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Invoice ID:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="invoiceIdEdit">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>60</y>
+          <width>520</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>520</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arbitrary 32-byte hex value to identify this payment. Leave empty if you don't need this.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>
@@ -420,7 +545,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>809</width>
+     <width>750</width>
      <height>22</height>
     </rect>
    </property>

@@ -138,7 +138,7 @@ private:
     Error askPassword();
 
     // Create and sign transaction
-    Error createPaymentTx(const QString& psRecvAcc, std::int64_t pnAmount, std::int64_t pnTxFee, std::int64_t pnTagID, QString& psJson, QString& psHex);
+    Error createPaymentTx(const QString& psRecvAcc, std::int64_t pnAmount, std::int64_t pnTxFee, std::int64_t pnTagID, const QString& psInvoiceId, QString& psJson, QString& psHex);
 
     // Adjust element layout
     void setupControls(QWidget *parent);

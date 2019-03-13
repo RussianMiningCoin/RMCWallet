@@ -34,9 +34,9 @@ unix {
     macx {
         # Use Homebrew packages for Mac OS X builds
 
-        QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.14
-        BOOST_INCLUDE_PATH += /usr/local/Cellar/boost/1.68.0/include
-        BOOST_LIB_PATH = /usr/local/Cellar/boost/1.68.0/lib
+        QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.12
+        BOOST_INCLUDE_PATH += /usr/local/Cellar/boost/1.68.0_1/include
+        BOOST_LIB_PATH = /usr/local/Cellar/boost/1.68.0_1/lib
         BOOST_SUFFIX=-mt
 
         OPENSSL_INCLUDE_PATH += /usr/local/Cellar/openssl/1.0.2q/include
